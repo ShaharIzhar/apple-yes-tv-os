@@ -79,7 +79,12 @@ The keys end up inside the built app, so don't share the APK file you build.
 
 ## Install
 
-### 1. On the TV: turn on developer mode and debugging
+Two ways, same result: **Option 1** by hand, step by step, or **Option 2**
+with Claude Code doing the computer side for you.
+
+### Option 1: install it yourself
+
+#### 1. On the TV: turn on developer mode and debugging
 
 1. **Settings → Device Preferences → About**. Scroll to **Build** and press
    Select on it **7 times**, until it says you are a developer.
@@ -89,7 +94,7 @@ The keys end up inside the built app, so don't share the APK file you build.
 3. **Settings → Network & Internet** → your network: note the box's **IP
    address**, for example `192.168.1.50`.
 
-### 2. On your computer: build and install
+#### 2. On your computer: build and install
 
 ```bash
 git clone https://github.com/ShaharIzhar/apple-yes-tv-os.git
@@ -104,7 +109,7 @@ The first build downloads Gradle and takes a few minutes. When it is done the
 script prints `Installed; Home-button helper is bound.` and the new home screen
 opens on the TV.
 
-### 3. What the script turned on (and why)
+#### 3. What the script turned on (and why)
 
 `install.sh` builds the app, installs it, and switches on three things the TV
 has no on-screen way to grant to a home screen:
@@ -115,13 +120,13 @@ has no on-screen way to grant to a home screen:
 | **Notification access for "Yes Launcher continue watching"** | Lets the launcher see what other apps are playing (title, progress), for the Continue watching and Now playing widgets and for Play / Pause from Home. It ignores the notifications themselves. |
 | **Calendar permission** | Shows the calendar of the Google account signed in on the box. Without it the calendar widget just stays hidden. |
 
-### 4. Check the Home button
+#### 4. Check the Home button
 
 Open any app, then press **Home on the real remote**: it should come back to
 the new home screen. (Home sent from a computer over `adb` skips the helper, so
 only the real remote proves it.)
 
-### 5. Optional: free up memory
+#### 5. Optional: free up memory
 
 The stock Google TV home and its recommendations service keep running in the
 background even though you no longer see them, and the box has only 2 GB of
@@ -136,11 +141,37 @@ tools/stock-home.sh 192.168.1.50 on     # undo, then reboot the TV once
 After a reboot of the TV the stock home starts once more; run
 `tools/stock-home.sh <ip> stop` to stop it again.
 
-### 6. When you are done: turn debugging off
+#### 6. When you are done: turn debugging off
 
 Anyone on your network can control a box with debugging on. Once everything
 works, go back to **Developer options** and turn **USB debugging** off. The
 launcher and its Home button keep working. Turn it back on only to update.
+
+### Option 2: install it with Claude Code
+
+[Claude Code](https://claude.com/claude-code) can do the whole computer side:
+install what is missing (Java 17, the Android SDK), build, install, check the
+Home helper, and tell you what to press on the TV.
+
+1. **On the TV**, do step 1 of Option 1: developer mode, USB debugging, and
+   note the TV's IP address.
+2. **On a Mac or Linux computer** on the same network, install Claude Code.
+3. **Optional, for show art:** set `TMDB_API_KEY` and `FANART_API_KEY` in your
+   shell first (see "What you need"). Don't paste the keys into the chat.
+4. **Run this one line**, with your TV's IP instead of `192.168.1.50`:
+
+```bash
+claude "Install the Yes Launcher from https://github.com/ShaharIzhar/apple-yes-tv-os on my TV at 192.168.1.50, following launcher/README.md (Option 1). Ask me before installing anything on this computer or changing anything on the TV beyond what the README describes."
+```
+
+5. **Watch the TV**: when it shows **"Allow USB debugging?"**, tick **Always
+   allow from this computer** and press **OK**.
+6. When it says it is done, press **Home on the real remote** to check (step 4
+   of Option 1), and turn debugging off afterwards (step 6).
+
+Claude Code asks before it installs software or changes settings, so you can
+follow along and answer as it goes. Ask it about the optional memory step
+(step 5 of Option 1) if you want that too.
 
 ### Updating later
 
