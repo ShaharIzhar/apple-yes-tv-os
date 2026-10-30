@@ -84,29 +84,25 @@ for you, or **Option 2** by hand, step by step.
 
 ### Option 1: install it with Claude Code
 
-[Claude Code](https://claude.com/claude-code) can do the whole computer side:
-install what is missing (Java 17, the Android SDK), build, install, check the
-Home helper, and tell you what to press on the TV.
+[Claude Code](https://claude.com/claude-code) walks you through everything:
+it explains how to set up the TV one step at a time, asks for the TV's IP
+address, installs what is missing on your computer (asking first), builds and
+installs the launcher, and checks that it works.
 
-1. **On the TV**, do step 1 of Option 2: developer mode, USB debugging, and
-   note the TV's IP address.
-2. **On a Mac or Linux computer** on the same network, install Claude Code.
-3. **Optional, for show art:** set `TMDB_API_KEY` and `FANART_API_KEY` in your
-   shell first (see "What you need"). Don't paste the keys into the chat.
-4. **Run this one line**, with your TV's IP instead of `192.168.1.50`:
+1. On a Mac or Linux computer on the same network as the TV, install Claude
+   Code.
+2. Run this one line in a terminal:
 
 ```bash
-claude "Install the Yes Launcher from https://github.com/ShaharIzhar/apple-yes-tv-os on my TV at 192.168.1.50, following launcher/README.md (Option 2). Ask me before installing anything on this computer or changing anything on the TV beyond what the README describes."
+claude "Clone https://github.com/ShaharIzhar/apple-yes-tv-os and install the Yes Launcher on my TV by following launcher/INSTALL-WITH-CLAUDE.md step by step."
 ```
 
-5. **Watch the TV**: when it shows **"Allow USB debugging?"**, tick **Always
-   allow from this computer** and press **OK**.
-6. When it says it is done, press **Home on the real remote** to check (step 4
-   of Option 2), and turn debugging off afterwards (step 6).
+3. Follow along: Claude tells you what to press on the TV, asks for the IP
+   address, and asks before installing anything. Have the remote with you.
 
-Claude Code asks before it installs software or changes settings, so you can
-follow along and answer as it goes. Ask it about the optional memory step
-(step 5 of Option 2) if you want that too.
+The steps it follows are in
+[`INSTALL-WITH-CLAUDE.md`](INSTALL-WITH-CLAUDE.md), and they are the same as
+Option 2 below.
 
 ### Option 2: install it yourself
 

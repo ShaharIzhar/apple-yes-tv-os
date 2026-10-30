@@ -4,11 +4,22 @@ A Liquid Glass, tvOS-style home screen for the **yes streamer box** (the yes
 pay-TV operator's Android TV box in Israel), and the notes and tools used to
 clean the box up.
 
-**To install it on your own box, follow [`launcher/README.md`](launcher/README.md).**
+## Install
+
 You need the box on the same network as a Mac or Linux computer, the remote,
-and about 20 minutes. Let
-[Claude Code](https://claude.com/claude-code) do it with one command (Option 1),
-or do it by hand (Option 2).
+and about 20 minutes.
+
+**Option 1: with [Claude Code](https://claude.com/claude-code).** Run this one
+line on the computer. Claude explains how to set up the TV step by step, asks
+for the TV's IP address, and asks before installing anything:
+
+```bash
+claude "Clone https://github.com/ShaharIzhar/apple-yes-tv-os and install the Yes Launcher on my TV by following launcher/INSTALL-WITH-CLAUDE.md step by step."
+```
+
+**Option 2: by hand.** Follow the steps in [`launcher/README.md`](launcher/README.md).
+
+## What's in here
 
 | Folder | What it is |
 | --- | --- |
