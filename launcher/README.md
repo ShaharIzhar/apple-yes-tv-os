@@ -79,10 +79,36 @@ The keys end up inside the built app, so don't share the APK file you build.
 
 ## Install
 
-Two ways, same result: **Option 1** by hand, step by step, or **Option 2**
-with Claude Code doing the computer side for you.
+Two ways, same result: **Option 1** with Claude Code doing the computer side
+for you, or **Option 2** by hand, step by step.
 
-### Option 1: install it yourself
+### Option 1: install it with Claude Code
+
+[Claude Code](https://claude.com/claude-code) can do the whole computer side:
+install what is missing (Java 17, the Android SDK), build, install, check the
+Home helper, and tell you what to press on the TV.
+
+1. **On the TV**, do step 1 of Option 2: developer mode, USB debugging, and
+   note the TV's IP address.
+2. **On a Mac or Linux computer** on the same network, install Claude Code.
+3. **Optional, for show art:** set `TMDB_API_KEY` and `FANART_API_KEY` in your
+   shell first (see "What you need"). Don't paste the keys into the chat.
+4. **Run this one line**, with your TV's IP instead of `192.168.1.50`:
+
+```bash
+claude "Install the Yes Launcher from https://github.com/ShaharIzhar/apple-yes-tv-os on my TV at 192.168.1.50, following launcher/README.md (Option 2). Ask me before installing anything on this computer or changing anything on the TV beyond what the README describes."
+```
+
+5. **Watch the TV**: when it shows **"Allow USB debugging?"**, tick **Always
+   allow from this computer** and press **OK**.
+6. When it says it is done, press **Home on the real remote** to check (step 4
+   of Option 2), and turn debugging off afterwards (step 6).
+
+Claude Code asks before it installs software or changes settings, so you can
+follow along and answer as it goes. Ask it about the optional memory step
+(step 5 of Option 2) if you want that too.
+
+### Option 2: install it yourself
 
 #### 1. On the TV: turn on developer mode and debugging
 
@@ -146,32 +172,6 @@ After a reboot of the TV the stock home starts once more; run
 Anyone on your network can control a box with debugging on. Once everything
 works, go back to **Developer options** and turn **USB debugging** off. The
 launcher and its Home button keep working. Turn it back on only to update.
-
-### Option 2: install it with Claude Code
-
-[Claude Code](https://claude.com/claude-code) can do the whole computer side:
-install what is missing (Java 17, the Android SDK), build, install, check the
-Home helper, and tell you what to press on the TV.
-
-1. **On the TV**, do step 1 of Option 1: developer mode, USB debugging, and
-   note the TV's IP address.
-2. **On a Mac or Linux computer** on the same network, install Claude Code.
-3. **Optional, for show art:** set `TMDB_API_KEY` and `FANART_API_KEY` in your
-   shell first (see "What you need"). Don't paste the keys into the chat.
-4. **Run this one line**, with your TV's IP instead of `192.168.1.50`:
-
-```bash
-claude "Install the Yes Launcher from https://github.com/ShaharIzhar/apple-yes-tv-os on my TV at 192.168.1.50, following launcher/README.md (Option 1). Ask me before installing anything on this computer or changing anything on the TV beyond what the README describes."
-```
-
-5. **Watch the TV**: when it shows **"Allow USB debugging?"**, tick **Always
-   allow from this computer** and press **OK**.
-6. When it says it is done, press **Home on the real remote** to check (step 4
-   of Option 1), and turn debugging off afterwards (step 6).
-
-Claude Code asks before it installs software or changes settings, so you can
-follow along and answer as it goes. Ask it about the optional memory step
-(step 5 of Option 1) if you want that too.
 
 ### Updating later
 

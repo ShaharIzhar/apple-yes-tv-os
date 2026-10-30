@@ -6,8 +6,9 @@ clean the box up.
 
 **To install it on your own box, follow [`launcher/README.md`](launcher/README.md).**
 You need the box on the same network as a Mac or Linux computer, the remote,
-and about 20 minutes. Do it by hand (Option 1), or let
-[Claude Code](https://claude.com/claude-code) do it with one command (Option 2).
+and about 20 minutes. Let
+[Claude Code](https://claude.com/claude-code) do it with one command (Option 1),
+or do it by hand (Option 2).
 
 | Folder | What it is |
 | --- | --- |
