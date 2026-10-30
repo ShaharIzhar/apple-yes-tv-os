@@ -1,0 +1,7 @@
+# Private – never on GitHub
+secrets.properties
+tv-backup/
+tv-shots/
+.claude/settings.local.json
+.DS_Store
+.env

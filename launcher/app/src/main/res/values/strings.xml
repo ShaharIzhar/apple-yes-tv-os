@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inputs">Inputs</string>
+    <string name="good_morning">Good morning</string>
+    <string name="good_afternoon">Good afternoon</string>
+    <string name="good_evening">Good evening</string>
+    <string name="edit_widgets">Edit widgets</string>
+    <string name="tip_yes">Yes+</string>
+    <string name="tip_widgets">Widgets</string>
+    <string name="add_widget">Add widget</string>
+    <string name="widget_continue">Continue watching</string>
+    <string name="widget_now_playing">Now playing</string>
+    <string name="widget_calendar">Calendar</string>
+    <string name="widget_move_up">Move up</string>
+    <string name="widget_move_down">Move down</string>
+    <string name="widget_hide">Hide widget</string>
+    <string name="settings">Settings</string>
+    <string name="live_tv">Live TV</string>
+    <string name="no_inputs">No inputs found</string>
+    <string name="add_apps">Add apps</string>
+    <string name="all_apps">All Apps</string>
+    <string name="home_key_name">Yes Launcher Home button</string>
+    <string name="home_key_description">Opens Yes Launcher when you press Home on the remote.</string>
+    <string name="media_listener_name">Yes Launcher continue watching</string>
+    <string name="continue_watching_app">CONTINUE WATCHING %1$s</string>
+    <string name="up_next_app">UP NEXT ON %1$s</string>
+    <string name="resume">Resume</string>
+    <string name="continue_playing_app">CONTINUE PLAYING %1$s</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="playing_on">PLAYING ON %1$s</string>
+    <string name="paused_on">PAUSED ON %1$s</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="calendar_title">CALENDAR</string>
+    <string name="calendar_now_until">Now · until %1$s</string>
+    <string name="calendar_in_min">in %1$d min</string>
+    <string name="calendar_tomorrow_day">Tomorrow</string>
+    <string name="calendar_today">Today</string>
+    <string name="calendar_view_next">Next</string>
+    <string name="calendar_view_week">Week</string>
+    <string name="calendar_all_day">All day</string>
+    <string name="edit_done">Done</string>
+    <string name="edit_remove">Remove from Home</string>
+    <string name="edit_uninstall">Uninstall app</string>
+    <string name="all_apps_in_row">All apps are in the row</string>
+</resources>

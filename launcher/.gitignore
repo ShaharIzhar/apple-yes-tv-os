@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/app/build
+/captures
+.externalNativeBuild
+.cxx
+/app/src/main/assets/secrets.properties
+secrets.properties
+!secrets.properties.example
+/app/src/main/res/raw/wallpaper_*.jpg

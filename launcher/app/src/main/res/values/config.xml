@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Wallpaper (Top Shelf fallback): next one every 10 s with a 10 s fade, so the
+         gradient colours are always flowing (user, 30 Oct). Only while Home is visible. -->
+    <integer name="wallpaper_interval_ms">10000</integer>
+
+    <!-- The app row, left to right. Five are visible; the row scrolls for more.
+         Packages not installed are skipped. -->
+    <string-array name="row_apps">
+        <item>il.co.yes.yesplus</item>
+        <item>com.netflix.ninja</item>
+        <item>com.disney.disneyplus</item>
+        <item>com.apple.atve.androidtv.appletv</item>
+        <item>com.google.android.youtube.tv</item>
+        <item>com.stremio.one</item>
+    </string-array>
+
+    <!-- Top Shelf titles per app (comma-separated, rotated on each focus).
+         Empty: TMDB's most popular title for that service in Israel; no
+         provider either: the aerial wallpaper. -->
+    <string name="top_shelf_yesplus"></string>
+    <string name="top_shelf_netflix">Breaking Bad,Stranger Things,Squid Game</string>
+    <string name="top_shelf_disneyplus">The Mandalorian,Andor,WandaVision</string>
+    <string name="top_shelf_appletv">Severance,Ted Lasso,The Morning Show</string>
+    <string name="top_shelf_youtube"></string>
+    <string name="top_shelf_stremio"></string>
+
+    <!-- Weather under the clock (Open-Meteo, no key): the place, and a point at sea for the wave
+         height (no sea nearby: waves are simply not shown). Default: Tel Aviv. -->
+    <string name="weather_latitude" translatable="false">32.08</string>
+    <string name="weather_longitude" translatable="false">34.78</string>
+    <string name="weather_sea_latitude" translatable="false">32.08</string>
+    <string name="weather_sea_longitude" translatable="false">34.75</string>
+
+    <!-- Top Shelf "popular now" country (TMDB watch region, ISO 3166-1 code). -->
+    <string name="tmdb_region" translatable="false">IL</string>
+
+    <!-- Glass cards on Home. Set any to false to hide it. -->
+    <bool name="now_playing_card">true</bool>   <!-- music playing on this box, above Continue watching -->
+    <bool name="speaker_card">false</bool>      <!-- Google Cast speakers on the network (user, 29 Oct: not needed) -->
+    <bool name="calendar_card">true</bool>      <!-- next Google Calendar event, under the capsule -->
+    <integer name="calendar_lookahead_hours">168</integer>   <!-- the week list -->
+
+    <!-- Music apps: "Continue playing", Play from Home, no show art. Apps that
+         declare themselves audio apps count too. -->
+    <string-array name="music_apps">
+        <item>com.spotify.tv.android</item>
+        <item>com.spotify.music</item>
+        <item>com.google.android.youtube.tvmusic</item>
+        <item>com.google.android.apps.youtube.music</item>
+        <item>com.apple.android.music</item>
+        <item>deezer.android.tv</item>
+        <item>com.aspiro.tidal</item>
+    </string-array>
+
+    <!-- TMDB watch_provider_id per app, used for the IL "popular now" fallback. -->
+    <string-array name="watch_providers_yesplus"></string-array>
+    <string-array name="watch_providers_netflix"><item>8</item></string-array>
+    <string-array name="watch_providers_disneyplus"><item>337</item></string-array>
+    <string-array name="watch_providers_appletv"><item>350</item></string-array>
+    <string-array name="watch_providers_youtube"></string-array>
+    <string-array name="watch_providers_stremio"></string-array>
+</resources>

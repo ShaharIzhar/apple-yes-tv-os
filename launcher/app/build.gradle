@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+}
+
+def envKey(String name) {
+    def v = providers.environmentVariable(name).getOrElse('').trim()
+    if (v.isEmpty()) logger.warn("WARNING: ${name} is not set - Top Shelf art from that service will be skipped.")
+    return v
+}
+
+android {
+    namespace 'tv.yes.launcher'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "tv.yes.launcher"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        resValue "string", "app_name", "Yes Launcher"
+
+        // API keys come from environment variables at build time, never from a file.
+        // See README "API keys".
+        buildConfigField "String", "TMDB_API_KEY", "\"${envKey('TMDB_API_KEY')}\""
+        buildConfigField "String", "FANART_API_KEY", "\"${envKey('FANART_API_KEY')}\""
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += ['/META-INF/{AL2.0,LGPL2.1}']
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}
+
+/* ---------- Placeholder wallpaper generator ---------- */
+tasks.register('genWallpapers') {
+    doLast {
+        def outDir = file("src/main/res/raw")
+        outDir.mkdirs()
+        def toolsSrc = rootProject.file("tools/GenWallpapers.java")
+        if (!toolsSrc.exists()) {
+            println "GenWallpapers.java not found - skipping."
+            return
+        }
+        // Only (re)generate if any wallpaper_N.jpg is missing
+        def missing = (1..12).any { i -> !new File(outDir, "wallpaper_${i}.jpg").exists() }
+        if (!missing) {
+            println "Wallpapers already present - skipping generation."
+            return
+        }
+        // Compile and run the standalone generator
+        def classesDir = new File(buildDir, "genwallpapers")
+        classesDir.mkdirs()
+        exec {
+            commandLine "javac", "-d", classesDir.absolutePath, toolsSrc.absolutePath
+        }
+        exec {
+            commandLine "java", "-cp", classesDir.absolutePath, "GenWallpapers", outDir.absolutePath
+        }
+        println "Generated placeholder wallpapers in ${outDir}"
+    }
+}
+
+afterEvaluate {
+    tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Resources") }.configureEach {
+        dependsOn("genWallpapers")
+    }
+}
