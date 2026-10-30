@@ -522,7 +522,8 @@ public class LauncherActivity extends Activity {
         gridTiles.clear();
         strip.removeAllViews();
         gridLayer.removeAllViews();
-        TextView allApps = text(semibold, 18, Spec.TEXT, 8, 1);
+        allAppsTitle = text(semibold, 18, Spec.TEXT, 8, 1);
+        TextView allApps = allAppsTitle;
         allApps.setText(R.string.all_apps);
         allApps.setLetterSpacing(Spec.TITLE_TRACKING);
         allApps.setIncludeFontPadding(false);
@@ -986,6 +987,7 @@ public class LauncherActivity extends Activity {
     }
 
     private boolean topBandOn;
+    private TextView allAppsTitle;   // "All Apps", shown while the first grid row has focus
 
     /** The frosted band fades in once the page offset y puts tiles under the clock, weather and capsule. */
     private void showTopBand(float y) {
@@ -1008,6 +1010,13 @@ public class LauncherActivity extends Activity {
     private void scrollPage() {
         float y = gridOpen ? Spec.GRID_FOCUS_TOP * density - gridRowTop(gridIndex / Spec.ROW_VISIBLE) : 0f;
         showTopBand(y);
+        // Past the first grid row the title would slide up under the weather line (user, 30 Oct).
+        if (allAppsTitle != null) {
+            float a = gridIndex / Spec.ROW_VISIBLE == 0 ? 1f : 0f;
+            if (allAppsTitle.getAlpha() != a) {
+                allAppsTitle.animate().alpha(a).setDuration(Spec.LABEL_MS).setInterpolator(Spec.EASE).start();
+            }
+        }
         if (page.getTranslationY() == y) return;
         page.animate().translationY(y).setDuration(Spec.TRANSFORM_MS).setInterpolator(Spec.FOCUS)
                 .setUpdateListener(a -> glass.invalidateAll()).start();

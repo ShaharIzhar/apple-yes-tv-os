@@ -4,6 +4,17 @@ A Liquid Glass, tvOS-style home screen for the **yes streamer box** (the yes
 pay-TV operator's Android TV box in Israel), and the notes and tools used to
 clean the box up.
 
+## Showcase
+
+![Home: full-screen show art, the app row, widgets on the right](docs/screenshots/home.jpg)
+
+| | |
+| --- | --- |
+| ![Continue watching and Now playing](docs/screenshots/now-playing.jpg) | ![All Apps under a frosted top bar](docs/screenshots/all-apps.jpg) |
+| **Continue watching** with Resume, and **Now playing** controlling Spotify from Home | **All Apps**, scrolling under a frosted top bar |
+| ![Flowing colour gradient for apps without show art](docs/screenshots/gradient.jpg) | |
+| A slowly **flowing colour gradient** for apps without show art | |
+
 ## Install
 
 You need the box on the same network as a Mac or Linux computer, the remote,
